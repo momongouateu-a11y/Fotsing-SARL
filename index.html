@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotsing Sarl</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#123C5C',
+                        secondary: '#1A5D8C',
+                        accent: '#E8A93D',
+                        light: '#F4F8FC',
+                        dark: '#14212D',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Minimal animations: reveal on scroll, card hover, hero CTA */
+:root{ --accent:#F39C12; --primary:#1B4F72; }
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s cubic-bezier(.2,.9,.2,1), transform .6s cubic-bezier(.2,.9,.2,1); }
+.reveal.show{ opacity:1; transform:translateY(0); }
+.hero-cta{ transition:transform .25s ease, box-shadow .25s ease; }
+.hero-cta:hover{ transform:translateY(-6px) scale(1.02); box-shadow:0 18px 40px rgba(27,79,114,0.12); }
+.product-card{ transition:transform .35s ease, box-shadow .35s ease; }
+.product-card:hover{ transform:translateY(-8px); box-shadow:0 20px 40px rgba(10,25,47,0.12); }
+.marquee-content{ animation: marquee 14s linear infinite; }
+@keyframes marquee{ 0%{ transform:translateX(0);} 100%{ transform:translateX(-50%);} }
+#navbar.scrolled{ background: rgba(255,255,255,0.04); backdrop-filter: blur(6px); }
+</style>
+</head>
+<body class="font-sans bg-white text-dark overflow-x-hidden">
+    <a href="#accueil" style="position:absolute;left:-999px;top:auto;" onfocus="this.style.left='8px'" onblur="this.style.left='-999px'">Aller au contenu</a>
+
+
+
+     <video src="" 
+    autoplay 
+    loop 
+    muted class="absolute -z-10 object-cover w-full h-screen" ></video>
+    <img class="absolute -z-10 object-cover w-full h-screen" src="images/hero-mattress.svg" alt="Illustration d'un matelas premium" width="1600" height="1100" loading="eager" decoding="async" srcset="images/hero-mattress.svg 800w, images/hero-mattress.svg 1200w, images/hero-mattress.svg 1600w" sizes="100vw">
+
+    <!-- ===== NAVBAR ===== -->
+    <nav id="navbar" role="navigation" aria-label="Main navigation" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <img src="images/logo.jpeg" alt="logo" id="site-logo" class="w-10 h-10 object-contain rounded-full" width="40" height="40" loading="eager" decoding="async" />
+                    <span class="text-2xl font-bold text-white" id="logo-text">Fotsing Sarl</span>
+                </div>
+
+                <!-- Nav Links Desktop -->
+                 <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="index.html" class="text-primary font-semibold">Accueil</a>
+                    <a href="produit.html" class="text-dark hover:text-primary transition">Produits</a>
+                    <a href="avantage.html" class="text-dark hover:text-primary transition">Avantages</a>
+                    <a href="avis.html" class="text-dark hover:text-primary transition">Avis</a>
+                    <a href="contact.html" class="text-dark hover:text-primary transition">Contact</a>
+                </div>
+
+                <!-- CTA + Cart -->
+                <div class="flex items-center space-x-4">
+                    <!-- Cart Button -->
+                    <button type="button" onclick="toggleCart()" aria-label="Voir le panier" class="relative p-2 text-white hover:text-accent transition-colors">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-accent text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold hidden">0</span>
+                    </button>
+                    <!-- WhatsApp CTA -->
+                    <a href="#contact" class="hidden md:flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full font-semibold transition-all transform hover:scale-105">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Commander</span>
+                    </a>
+                    <!-- Mobile Menu -->
+                    <button id="menu-btn" onclick="toggleMenu()" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden text-white text-2xl">
+                        <i class="fas fa-bars" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" role="menu" aria-label="Mobile menu" class="hidden md:hidden bg-primary shadow-lg">
+            <div class="px-4 py-6 space-y-4">
+                <a role="menuitem" href="index.html" onclick="closeMenu()" class="block text-white hover:text-accent font-medium py-2 border-b border-blue-700">Accueil</a>
+                <a role="menuitem" href="produit.html" onclick="closeMenu()" class="block text-white hover:text-accent font-medium py-2 border-b border-blue-700">Produits</a>
+                <a role="menuitem" href="avantage.html" onclick="closeMenu()" class="block text-white hover:text-accent font-medium py-2 border-b border-blue-700">Avantages</a>
+                <a role="menuitem" href="avis.html" onclick="closeMenu()" class="block text-white hover:text-accent font-medium py-2 border-b border-blue-700">Avis</a>
+                <a role="menuitem" href="contact.html" onclick="closeMenu()" class="block text-white hover:text-accent font-medium py-2">Contact</a>
+                <a role="menuitem" href="https://wa.me/237675624020" class="flex items-center space-x-2 bg-green-500 text-white px-4 py-3 rounded-full font-semibold justify-center">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Commander via WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="accueil" role="main" class="hero-shell relative min-h-screen flex items-center hero-bg overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/90 via-secondary/80 to-primary/90"></div>
+        <div class="absolute inset-0 hero-pattern opacity-30"></div>
+
+        <div class="absolute top-20 right-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-pulse floating-shape large animate"></div>
+        <div class="absolute bottom-20 left-10 w-48 h-48 bg-white/5 rounded-full blur-2xl animate-pulse delay-1000 floating-shape medium animate"></div>
+        <div class="absolute right-16 top-1/2 -translate-y-1/2 w-24 h-24 bg-white/10 rounded-full blur-2xl floating-shape small animate"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] items-center gap-10 lg:gap-16">
+                <div class="text-white hero-copy" data-aos="fade-right">
+                    <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6 hero-badge">
+                        <span class="w-2 h-2 bg-green-400 rounded-full animate-ping"></span>
+                        <span class="text-sm font-medium">Livraison gratuite disponible</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-8xl font-bold leading-[0.88] mb-6 tracking-[-0.05em] hero-title">
+                        Dormez<br>
+                        <span class="text-accent hero-high">Mieux</span><br>
+                        Chaque Nuit
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-white/80 mb-8 font-sans leading-relaxed max-w-lg hero-subtitle">
+                        Des matelas de qualité premium pour un sommeil parfait.
+                        Découvrez notre collection et commandez facilement via WhatsApp.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 hero-actions">
+                        <a href="#produits" class="btn-primary flex items-center justify-center space-x-2 bg-accent hover:bg-yellow-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-lg">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Voir les Produits</span>
+                        </a>
+                        <a href="#wa-order" onclick="openWhatsApp('Bonjour, je souhaite obtenir plus d\'informations sur vos matelas.')" class="hero-whatsapp flex items-center justify-center space-x-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-lg cursor-pointer">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4 sm:gap-6 mt-12 pt-8 border-t border-white/20 hero-stats">
+                        <div class="text-center hero-stat">
+                            <div class="text-2xl sm:text-3xl font-bold text-accent counter" data-target="500">0</div>
+                            <div class="text-white/70 text-xs sm:text-sm mt-1">Clients Satisfaits</div>
+                        </div>
+                        <div class="text-center hero-stat">
+                            <div class="text-2xl sm:text-3xl font-bold text-accent counter" data-target="15">0</div>
+                            <div class="text-white/70 text-xs sm:text-sm mt-1">Modèles Disponibles</div>
+                        </div>
+                        <div class="text-center hero-stat">
+                            <div class="text-2xl sm:text-3xl font-bold text-accent">5★</div>
+                            <div class="text-white/70 text-xs sm:text-sm mt-1">Note Moyenne</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex justify-center lg:justify-end hero-visual-wrap">
+                    <div class="hero-visual glass-card">
+                        <div class="hero-visual-panel">
+                            <div class="hero-product-image">
+                                <div class="hero-mini-pill hero-mini-pill-top">Premium</div>
+                                <div class="hero-mini-pill hero-mini-pill-bottom">Confort +</div>
+                                <img src="images/roulo.jpg" alt="Matelas premium" width="900" height="700" loading="eager" decoding="async" />
+                            </div>
+                        </div>
+
+                        <div class="hero-floating-card hero-card-one">
+                            <span class="dot green"></span>
+                            <div>
+                                <strong>5 ans</strong>
+                                <small>Garantie</small>
+                            </div>
+                        </div>
+
+                        <div class="hero-floating-card hero-card-two">
+                            <span class="dot amber"></span>
+                            <div>
+                                <strong>4.9/5</strong>
+                                <small>Clients</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#produits" class="flex flex-col items-center text-white/60 hover:text-white">
+                <span class="text-xs mb-2">Défiler</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== BANNIÈRE PROMO ===== -->
+    <div class="bg-accent py-3 overflow-hidden">
+        <div class="marquee-container">
+            <div class="marquee-content flex items-center space-x-12 text-white font-semibold">
+                <span><i class="fas fa-truck mr-2"></i>Livraison Gratuite dès 150 000 FCFA</span>
+                <span>•</span>
+                <span><i class="fas fa-shield-alt mr-2"></i>Garantie 5 ans sur tous nos matelas</span>
+                <span>•</span>
+                <span><i class="fab fa-whatsapp mr-2"></i>Commande facile via WhatsApp</span>
+                <span>•</span>
+                <span><i class="fas fa-undo mr-2"></i>Retour 30 jours satisfait ou remboursé</span>
+                <span>•</span>
+                <span><i class="fas fa-truck mr-2"></i>Livraison Gratuite dès 150 000 FCFA</span>
+                <span>•</span>
+                <span><i class="fas fa-shield-alt mr-2"></i>Garantie 5 ans sur tous nos matelas</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== AVANTAGES RAPIDES ===== -->
+    <section class="py-16 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="feature-card bg-white rounded-2xl p-6 text-center shadow-md hover:shadow-lg transition-all hover:-translate-y-1">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-truck text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-dark mb-1">Livraison Rapide</h3>
+                    <p class="text-gray-500 text-sm">Gratuite dès 150K FCFA</p>
+                </div>
+                <div class="feature-card bg-white rounded-2xl p-6 text-center shadow-md hover:shadow-lg transition-all hover:-translate-y-1">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fab fa-whatsapp text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-dark mb-1">Commande WhatsApp</h3>
+                    
+                    <p class="text-gray-500 text-sm">GSimple & Rapide</p>
+                </div>
+                <div class="feature-card bg-white rounded-2xl p-6 text-center shadow-md hover:shadow-lg transition-all hover:-translate-y-1">
+                    <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-dark mb-1">Garantie 5 Ans</h3>
+                    <p class="text-gray-500 text-sm">Sur tous nos produits</p>
+                </div>
+                <div class="feature-card bg-white rounded-2xl p-6 text-center shadow-md hover:shadow-lg transition-all hover:-translate-y-1">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-undo text-red-500 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-dark mb-1">Retour 30 Jours</h3>
+                    <p class="text-gray-500 text-sm">Satisfait ou remboursé</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION PRODUITS ===== -->
+    <section id="produits" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center mb-14">
+                <span class="inline-block bg-accent/10 text-accent font-semibold px-4 py-1 rounded-full text-sm mb-3">Notre Collection</span>
+                <h2 class="text-4xl lg:text-5xl font-bold text-dark mb-4">Nos Matelas <span class="text-primary">Premium</span></h2>
+                <p class="text-gray-500 text-lg max-w-xl mx-auto">Choisissez le matelas parfait pour un sommeil de qualité supérieure.</p>
+            </div>
+
+            <!-- Filtres -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <button onclick="filterProducts('all')" class="filter-btn active-filter px-5 py-2 rounded-full font-semibold text-sm border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all" data-filter="all">
+                    Tous
+                </button>
+                <button onclick="filterProducts('economique')" class="filter-btn px-5 py-2 rounded-full font-semibold text-sm border-2 border-gray-200 text-gray-600 hover:border-primary hover:text-primary transition-all" data-filter="economique">
+                    Économique
+                </button>
+                <button onclick="filterProducts('confort')" class="filter-btn px-5 py-2 rounded-full font-semibold text-sm border-2 border-gray-200 text-gray-600 hover:border-primary hover:text-primary transition-all" data-filter="confort">
+                    Confort
+                </button>
+                <button onclick="filterProducts('luxe')" class="filter-btn px-5 py-2 rounded-full font-semibold text-sm border-2 border-gray-200 text-gray-600 hover:border-primary hover:text-primary transition-all" data-filter="luxe">
+                    Luxe
+                </button>
+                <button onclick="filterProducts('orthopedique')" class="filter-btn px-5 py-2 rounded-full font-semibold text-sm border-2 border-gray-200 text-gray-600 hover:border-primary hover:text-primary transition-all" data-filter="orthopedique">
+                    Orthopédique
+                </button>
+            </div>
+
+            <!-- Grille Produits -->
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Les produits sont injectés par JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION AVANTAGES ===== -->
+    <section id="avantages" class="py-20 bg-gradient-to-br from-primary to-secondary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Left -->
+                <div>
+                    <span class="inline-block bg-white/10 text-white font-semibold px-4 py-1 rounded-full text-sm mb-4">Pourquoi nous choisir ?</span>
+                    <h2 class="text-4xl font-bold mb-6">Qualité & Confort <br><span class="text-accent">Garantis</span></h2>
+                    <p class="text-white/80 text-lg mb-8">Chez Fotsing Sarl, nous croyons qu'un bon sommeil transforme votre vie. C'est pourquoi chaque matelas est conçu avec soin.</p>
+                    <div class="space-y-5">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fas fa-leaf text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Matériaux Naturels & Eco-friendly</h4>
+                                <p class="text-white/70">Nos matelas sont fabriqués avec des matériaux sains, sans produits chimiques nocifs.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fas fa-heart text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Soutien Orthopédique Optimal</h4>
+                                <p class="text-white/70">Conçus avec des experts en santé du dos pour un soutien parfait de la colonne vertébrale.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fas fa-snowflake text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Technologie Thermo-Régulatrice</h4>
+                                <p class="text-white/70">Dormez à la bonne température toute la nuit grâce à notre technologie brevetée.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fas fa-medal text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Certifié & Testé</h4>
+                                <p class="text-white/70">Tous nos matelas sont certifiés et testés par des laboratoires indépendants.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right - Image/Stats -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/20">
+                        <div class="text-5xl font-bold text-accent mb-2">500+</div>
+                        <p class="text-white/80">Clients satisfaits</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/20 mt-8">
+                        <div class="text-5xl font-bold text-accent mb-2">5★</div>
+                        <p class="text-white/80">Note Moyenne</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/20 -mt-8">
+                        <div class="text-5xl font-bold text-accent mb-2">5<span class="text-2xl">ans</span></div>
+                        <p class="text-white/80">De Garantie</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/20">
+                        <div class="text-5xl font-bold text-accent mb-2">15+</div>
+                        <p class="text-white/80">Modèles dispo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION AVIS CLIENTS ===== -->
+    <section id="avis" class="py-20 bg-gradient-to-br from-slate-50 via-white to-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span class="inline-block bg-accent/10 text-accent font-semibold px-4 py-1 rounded-full text-sm mb-3">Témoignages</span>
+                <h2 class="text-4xl lg:text-5xl font-bold text-dark mb-4">Ce que disent nos <span class="text-primary">clients</span></h2>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto">Plus de 500 clients nous font confiance pour leur confort, leur qualité de sommeil et leur expérience d’achat.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="reviews-container">
+                <article class="review-card bg-white rounded-[2rem] p-7 shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-lg">A</div>
+                            <div>
+                                <h3 class="font-bold text-dark">Amina</h3>
+                                <p class="text-sm text-gray-500">Yaoundé</p>
+                            </div>
+                        </div>
+                        <div class="text-amber-400 text-lg">★★★★★</div>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">« Très bon matelas, très confortable et très bien livré. J’ai immédiatement senti un grand changement dans mon sommeil. »</p>
+                    <div class="inline-flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-medium">
+                        <i class="fas fa-check-circle"></i> Commande satisfaisante
+                    </div>
+                </article>
+
+                <article class="review-card bg-white rounded-[2rem] p-7 shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center font-bold text-lg">D</div>
+                            <div>
+                                <h3 class="font-bold text-dark">Daniel</h3>
+                                <p class="text-sm text-gray-500">Bafoussam</p>
+                            </div>
+                        </div>
+                        <div class="text-amber-400 text-lg">★★★★★</div>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">« Le service est excellent et le matelas est vraiment de qualité. Très bon rapport qualité/prix et l’équipe est très réactive. »</p>
+                    <div class="inline-flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-medium">
+                        <i class="fas fa-check-circle"></i> Très recommandé
+                    </div>
+                </article>
+
+                <article class="review-card bg-white rounded-[2rem] p-7 shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-secondary/10 text-secondary flex items-center justify-center font-bold text-lg">C</div>
+                            <div>
+                                <h3 class="font-bold text-dark">Céline</h3>
+                                <p class="text-sm text-gray-500">Douala</p>
+                            </div>
+                        </div>
+                        <div class="text-amber-400 text-lg">★★★★★</div>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">« Le confort est au rendez-vous. J’ai commandé via WhatsApp et tout s’est bien passé. Mon sommeil est beaucoup plus réparateur. »</p>
+                    <div class="inline-flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-medium">
+                        <i class="fas fa-check-circle"></i> Expérience premium
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION COMMENT COMMANDER ===== -->
+    <section class="py-20 bg-gradient-to-br from-slate-50 via-white to-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span class="inline-block bg-green-100 text-green-600 font-semibold px-4 py-1 rounded-full text-sm mb-3">Simple & Rapide</span>
+                <h2 class="text-4xl lg:text-5xl font-bold text-dark mb-4">Comment <span class="text-primary">Commander ?</span></h2>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto">Commandez votre matelas en quelques minutes. Notre équipe vous guide et vous aide à trouver le bon modèle.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <div class="hidden md:block absolute top-16 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-primary via-accent to-green-500 z-0"></div>
+
+                <div class="group relative z-10 text-center bg-white rounded-[2rem] p-7 shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100 hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl ring-8 ring-primary/10">
+                        <span class="text-white text-3xl font-bold">1</span>
+                    </div>
+                    <div class="mb-5 text-5xl">🛍️</div>
+                    <h3 class="text-2xl font-bold text-dark mb-3">Choisissez</h3>
+                    <p class="text-gray-500 leading-relaxed">Parcourez notre sélection et choisissez le matelas qui correspond à votre confort et votre budget.</p>
+                </div>
+
+                <div class="group relative z-10 text-center bg-white rounded-[2rem] p-7 shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100 hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-gradient-to-br from-accent to-amber-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl ring-8 ring-accent/10">
+                        <span class="text-white text-3xl font-bold">2</span>
+                    </div>
+                    <div class="mb-5 text-5xl">💬</div>
+                    <h3 class="text-2xl font-bold text-dark mb-3">Contactez-nous</h3>
+                    <p class="text-gray-500 leading-relaxed">Envoyez votre choix sur WhatsApp et notre équipe vous répondra rapidement pour confirmer la commande.</p>
+                </div>
+
+                <div class="group relative z-10 text-center bg-white rounded-[2rem] p-7 shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100 hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl ring-8 ring-green-500/10">
+                        <span class="text-white text-3xl font-bold">3</span>
+                    </div>
+                    <div class="mb-5 text-5xl">🚚</div>
+                    <h3 class="text-2xl font-bold text-dark mb-3">Recevez</h3>
+                    <p class="text-gray-500 leading-relaxed">Validez le paiement et recevez votre matelas à domicile, en toute sérénité et avec le bon accompagnement.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-14">
+                <button type="button" onclick="openWhatsApp('Bonjour Fotsing Sarl 👋, je souhaite passer une commande.')" aria-label="Commander via WhatsApp" class="inline-flex items-center space-x-3 bg-green-500 hover:bg-green-600 text-white px-10 py-5 rounded-full font-bold text-xl transition-all transform hover:scale-105 shadow-2xl">
+                    <i class="fab fa-whatsapp text-3xl"></i>
+                    <span>Commander Maintenant via WhatsApp</span>
+                </button>
+                <p class="text-gray-400 text-sm mt-4">
+                    <i class="fas fa-clock mr-1"></i> Réponse rapide • Lun - Sam, 8h - 20h
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION CONTACT ===== -->
+    <section id="contact" class="py-20 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span class="inline-block bg-primary/10 text-primary font-semibold px-4 py-1 rounded-full text-sm mb-3"></span>
+                <h2 class="text-4xl font-bold text-dark mb-4">Nous <span class="text-primary">Contacter</span></h2>
+                <p class="text-gray-500 text-lg">Notre équipe est disponible pour vous aider</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Infos Contact -->
+                <div class="space-y-6">
+                    <div class="bg-white rounded-2xl p-6 shadow-md flex items-start space-x-4 hover:shadow-lg transition-all">
+                        <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fab fa-whatsapp text-green-500 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark text-lg mb-1">WhatsApp</h4>
+                            <p class="text-gray-500 mb-2">Commandez directement via WhatsApp</p>
+                            <a href="https://wa.me/237675624020" 
+                               class="text-green-500 font-semibold hover:underline">
+                                +237 675 624 020
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-md flex items-start space-x-4 hover:shadow-lg transition-all">
+                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-phone text-primary text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark text-lg mb-1">Téléphone</h4>
+                            <p class="text-gray-500 mb-2">Appelez-nous directement</p>
+                            <a href="tel:+237675624020" 
+                               class="text-primary font-semibold hover:underline">
+                                +237 675 624 020
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-md flex items-start space-x-4 hover:shadow-lg transition-all">
+                        <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-map-marker-alt text-accent text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark text-lg mb-1">Adresse</h4>
+                            <p class="text-gray-500 mb-2">Visitez notre showroom</p>
+                            <p class="text-dark font-semibold">Yaoundé, Cameroun</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-md flex items-start space-x-4 hover:shadow-lg transition-all">
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-clock text-blue-500 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark text-lg mb-1">Horaires</h4>
+                            <p class="text-gray-500">Lundi - Vendredi : 8h00 - 20h00</p>
+                            <p class="text-gray-500">Samedi : 9h00 - 18h00</p>
+                            <p class="text-gray-500">Dimanche : Fermé</p>
+                        </div>
+                    </div>
+
+                    <!-- Réseaux Sociaux -->
+                    <div class="bg-white rounded-2xl p-6 shadow-md">
+                        <h4 class="font-bold text-dark text-lg mb-4">Suivez-nous</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white hover:scale-110 transition-transform">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white hover:scale-110 transition-transform">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white hover:scale-110 transition-transform">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center text-white hover:scale-110 transition-transform">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulaire de Contact -->
+                <div class="bg-white rounded-[2rem] p-8 shadow-xl">
+                    <h3 class="text-2xl font-bold text-dark mb-2">Envoyez-nous un message</h3>
+                    <p class="text-gray-500 mb-6">Nous vous répondrons dans les plus brefs délais.</p>
+                    <form id="contact-form" class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-semibold text-dark mb-2" for="fname">Prénom *</label>
+                                <input id="fname" name="fname" type="text" class="form-control" placeholder="Votre prénom">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-dark mb-2" for="lname">Nom *</label>
+                                <input id="lname" name="lname" type="text" class="form-control" placeholder="Votre nom">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-dark mb-2" for="phone">Téléphone / WhatsApp *</label>
+                            <input id="phone" name="phone" type="tel" class="form-control" placeholder="+237 XXX XXX XXX">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-dark mb-2" for="email">Email</label>
+                            <input id="email" name="email" type="email" class="form-control" placeholder="votre@email.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-dark mb-2" for="product-interest">Produit souhaité</label>
+                            <select id="product-interest" name="product-interest" class="form-control bg-white">
+                                <option value="">-- Sélectionnez un produit --</option>
+                                <option value="Matelas économique">Matelas économique</option>
+                                <option value="Matelas confort">Matelas confort</option>
+                                <option value="Matelas luxe">Matelas luxe</option>
+                                <option value="Matelas orthopédique">Matelas orthopédique</option>
+                                <option value="Je ne sais pas encore">Je ne sais pas encore</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-dark mb-2" for="message">Message *</label>
+                            <textarea id="message" name="message" rows="4" class="form-control" placeholder="Décrivez votre besoin..."></textarea>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button type="submit" class="btn-primary flex-1 py-4">Envoyer</button>
+                            <button type="button" onclick="sendFormViaWhatsApp()" class="btn-secondary flex-1 py-4"><i class="fab fa-whatsapp"></i> Via WhatsApp</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+     <footer class="bg-dark text-white pt-16 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="images/logo.jpeg" alt="logo" class="w-10 h-10 object-contain rounded-full" width="40" height="40" loading="eager" decoding="async" />
+                        <span class="text-2xl font-bold">Fotsing SARL</span>
+                    </div>
+                    <p class="text-gray-400">Votre spécialiste du matelas premium pour un sommeil plus serein.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg text-accent mb-4">Liens</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white">Accueil</a></li>
+                        <li><a href="produit.html" class="hover:text-white">Produits</a></li>
+                        <li><a href="avantage.html" class="hover:text-white">Avantages</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg text-accent mb-4">Nos offres</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li>Matelas éco</li>
+                        <li>Matelas confort</li>
+                        <li>Matelas luxe</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg text-accent mb-4">Contact</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><i class="fab fa-whatsapp text-green-400 mr-2"></i>+237 675 624 020</li>
+                        <li><i class="fas fa-phone text-primary mr-2"></i>+237 675 624 020</li>
+                        <li><i class="fas fa-map-marker-alt text-accent mr-2"></i>Yaoundé, Cameroun</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-6 text-center text-gray-400 text-sm">© 2026 Fotsing SARL - Tous droits réservés.</div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/enhancements.js"></script>
+  </body>
+</html>

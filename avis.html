@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotsing SARL | Avis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#123C5C',
+                        secondary: '#1A5D8C',
+                        accent: '#E8A93D',
+                        light: '#F4F8FC',
+                        dark: '#14212D'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-white text-dark font-sans">
+    <a href="#main-content" style="position:absolute;left:-999px;top:auto;" onfocus="this.style.left='8px'" onblur="this.style.left='-999px'">Aller au contenu</a>
+    <nav role="navigation" aria-label="Main navigation" class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="images/logo.jpeg" alt="logo" class="w-10 h-10 object-contain rounded-full" width="40" height="40" loading="eager" decoding="async" />
+                    <span class="text-2xl font-bold text-primary">Fotsing SARL</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="index.html" class="text-dark hover:text-primary transition">Accueil</a>
+                    <a href="produit.html" class="text-dark hover:text-primary transition">Produits</a>
+                    <a href="avantage.html" class="text-dark hover:text-primary transition">Avantages</a>
+                    <a href="avis.html" class="text-primary font-semibold">Avis</a>
+                    <a href="contact.html" class="text-dark hover:text-primary transition">Contact</a>
+                </div>
+                <a href="contact.html" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full font-semibold">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Commander</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="main-content" role="main" class="page-hero text-white py-20 relative" data-stagger="70">
+        <div class="absolute top-20 right-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl floating-shape large animate"></div>
+        <div class="absolute bottom-20 left-10 w-48 h-48 bg-white/5 rounded-full blur-2xl floating-shape medium animate"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-stagger="70">
+            <div class="flex items-center gap-3 breadcrumb pb-6">
+                <a href="index.html">Accueil</a>
+                <span>/</span>
+                <span>Avis</span>
+            </div>
+            <div class="text-center">
+                <span class="section-tag bg-white/10 text-white border border-white/20">Témoignages</span>
+                <h1 class="page-title text-5xl lg:text-6xl font-bold mt-6 text-shadow">Ce que disent nos clients</h1>
+                <p class="mt-5 text-lg text-white/80 max-w-2xl mx-auto">La satisfaction de nos clients est notre meilleure preuve de qualité.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <article class="review-card bg-white rounded-[1.75rem] p-7">
+                    <div class="flex items-center gap-1 text-accent text-xl mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6">« Le matelas est vraiment confortable et le service client a été excellent. Je dors beaucoup mieux depuis trois semaines. »</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">A</div>
+                        <div>
+                            <h3 class="font-bold text-dark">Amina D.</h3>
+                            <p class="text-gray-500 text-sm">Client Fotsing SARL</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="review-card bg-white rounded-[1.75rem] p-7">
+                    <div class="flex items-center gap-1 text-accent text-xl mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6">« J’ai acheté un matelas orthopédique pour mes douleurs au dos. La qualité est au rendez-vous et le support est très bon. »</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-secondary/10 text-secondary flex items-center justify-center font-bold">M</div>
+                        <div>
+                            <h3 class="font-bold text-dark">Moussa K.</h3>
+                            <p class="text-gray-500 text-sm">Client Fotsing SARL</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="review-card bg-white rounded-[1.75rem] p-7">
+                    <div class="flex items-center gap-1 text-accent text-xl mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6">« Très belle commande, livraison rapide et matelas très confortable. Je recommande sans hésiter. »</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center font-bold">C</div>
+                        <div>
+                            <h3 class="font-bold text-dark">Charlotte N.</h3>
+                            <p class="text-gray-500 text-sm">Client Fotsing SARL</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="rounded-[2rem] bg-gradient-to-br from-primary to-secondary p-8 text-white text-center">
+                    <div class="text-5xl font-bold text-accent mb-2">500+</div>
+                    <p class="text-white/80">clients satisfaits</p>
+                </div>
+                <div class="rounded-[2rem] bg-light p-8 text-center">
+                    <div class="text-5xl font-bold text-primary mb-2">4.9/5</div>
+                    <p class="text-gray-600">note moyenne</p>
+                </div>
+                <div class="rounded-[2rem] bg-light p-8 text-center">
+                    <div class="text-5xl font-bold text-accent mb-2">98%</div>
+                    <p class="text-gray-600">recommandations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-light">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="section-tag">Votre tour</span>
+            <h2 class="text-4xl font-bold text-dark mt-5">Rejoignez plus de 500 clients satisfaits</h2>
+            <p class="text-gray-600 mt-4 text-lg">Commandez votre matelas premium et profitez d’un service de qualité, rapide et fiable.</p>
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
+                <a href="contact.html" class="btn-primary px-8 py-4">Commander maintenant</a>
+                <a href="produit.html" class="btn-secondary px-8 py-4">Découvrir nos produits</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white pt-16 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="images/logo.jpeg" alt="logo" class="w-10 h-10 object-contain rounded-full" width="40" height="40" loading="eager" decoding="async" />
+                        <span class="text-2xl font-bold">Fotsing SARL</span>
+                    </div>
+                    <p class="text-gray-400">Votre spécialiste du matelas premium pour un sommeil plus serein.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg text-accent mb-4">Liens</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white">Accueil</a></li>
+                        <li><a href="produit.html" class="hover:text-white">Produits</a></li>
+                        <li><a href="avantage.html" class="hover:text-white">Avantages</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg text-accent mb-4">Nos offres</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li>Matelas éco</li>
+                        <li>Matelas confort</li>
+                        <li>Matelas luxe</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg text-accent mb-4">Contact</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><i class="fab fa-whatsapp text-green-400 mr-2"></i>+237 675 624 020</li>
+                        <li><i class="fas fa-phone text-primary mr-2"></i>+237 675 624 020</li>
+                        <li><i class="fas fa-map-marker-alt text-accent mr-2"></i>Yaoundé, Cameroun</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-6 text-center text-gray-400 text-sm">© 2026 Fotsing SARL - Tous droits réservés.</div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/enhancements.js"></script>
+</body>
+</html>

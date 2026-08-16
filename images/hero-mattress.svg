@@ -1,0 +1,48 @@
+<svg width="1600" height="1100" viewBox="0 0 1600 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="1100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F2F4A"/>
+      <stop offset="0.5" stop-color="#1D4B71"/>
+      <stop offset="1" stop-color="#0F2436"/>
+    </linearGradient>
+    <linearGradient id="mattress" x1="320" y1="420" x2="1260" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E9F3FF"/>
+      <stop offset="1" stop-color="#B7D6F4"/>
+    </linearGradient>
+    <linearGradient id="pillows" x1="480" y1="240" x2="1120" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FDF9F2"/>
+      <stop offset="1" stop-color="#EFE7DA"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="1100" y1="300" x2="1360" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7C76A"/>
+      <stop offset="1" stop-color="#F39C12"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="1100" fill="url(#bg)"/>
+
+  <circle cx="1470" cy="200" r="180" fill="#F39C12" fill-opacity="0.15"/>
+  <circle cx="280" cy="880" r="220" fill="#81C1FF" fill-opacity="0.12"/>
+  <circle cx="1240" cy="860" r="260" fill="#FFFFFF" fill-opacity="0.06"/>
+
+  <g opacity="0.75">
+    <path d="M260 820C260 742 324 680 400 680H1200C1276 680 1340 742 1340 820V862C1340 939 1276 1002 1200 1002H400C324 1002 260 939 260 862V820Z" fill="#DDEAF8" fill-opacity="0.18"/>
+    <path d="M310 790C310 727.6 362.6 680 425 680H1175C1237.4 680 1290 727.6 1290 790V812C1290 874.4 1237.4 927 1175 927H425C362.6 927 310 874.4 310 812V790Z" fill="url(#mattress)"/>
+    <path d="M430 660C430 613.4 467.4 576 514 576H1086C1132.6 576 1170 613.4 1170 660V680H430V660Z" fill="url(#pillows)"/>
+    <path d="M500 520C500 479.1 533.1 446 574 446H1026C1066.9 446 1100 479.1 1100 520V574H500V520Z" fill="url(#pillows)"/>
+    <path d="M560 446C560 411.7 587.7 384 622 384H978C1012.3 384 1040 411.7 1040 446V520H560V446Z" fill="url(#mattress)" fill-opacity="0.85"/>
+    <path d="M392 820H1208L1170 926H430L392 820Z" fill="#9DBEE1" fill-opacity="0.5"/>
+  </g>
+
+  <g opacity="0.82">
+    <path d="M522 360L650 240H950L1078 360V494H522V360Z" fill="url(#accent)" fill-opacity="0.12"/>
+    <path d="M704 304H896V516H704V304Z" fill="#FFFFFF" fill-opacity="0.12"/>
+    <circle cx="770" cy="540" r="55" fill="#F7C76A" fill-opacity="0.85"/>
+    <circle cx="830" cy="540" r="55" fill="#F7C76A" fill-opacity="0.7"/>
+  </g>
+
+  <g opacity="0.9">
+    <path d="M1040 350L1280 260L1390 360L1240 520L1040 350Z" fill="url(#accent)" fill-opacity="0.8"/>
+    <circle cx="1190" cy="380" r="64" fill="#F9D993" fill-opacity="0.82"/>
+  </g>
+</svg>

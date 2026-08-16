@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotsing SARL | Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#123C5C',
+                        secondary: '#1A5D8C',
+                        accent: '#E8A93D',
+                        light: '#F4F8FC',
+                        dark: '#14212D'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-white text-dark font-sans">
+    <a href="#main-content" style="position:absolute;left:-999px;top:auto;" onfocus="this.style.left='8px'" onblur="this.style.left='-999px'">Aller au contenu</a>
+    <nav role="navigation" aria-label="Main navigation" class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="images/logo.jpeg" alt="logo" class="w-10 h-10 object-contain rounded-full" width="40" height="40" loading="eager" decoding="async" />
+                    <span class="text-2xl font-bold text-primary">Fotsing SARL</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="index.html" class="text-dark hover:text-primary transition">Accueil</a>
+                    <a href="produit.html" class="text-dark hover:text-primary transition">Produits</a>
+                    <a href="avantage.html" class="text-dark hover:text-primary transition">Avantages</a>
+                    <a href="avis.html" class="text-dark hover:text-primary transition">Avis</a>
+                    <a href="contact.html" class="text-primary font-semibold">Contact</a>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <a href="contact.html" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full font-semibold">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Commander</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="main-content" role="main" class="page-hero text-white py-20 relative" data-stagger="70">
+        <div class="absolute top-20 right-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl floating-shape large animate"></div>
+        <div class="absolute bottom-20 left-10 w-48 h-48 bg-white/5 rounded-full blur-2xl floating-shape medium animate"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-stagger="70">
+            <div class="flex items-center gap-3 breadcrumb pb-6">
+                <a href="index.html">Accueil</a>
+                <span>/</span>
+                <span>Contact</span>
+            </div>
+            <div class="text-center">
+                <span class="section-tag bg-white/10 text-white border border-white/20">Nous contacter</span>
+                <h1 class="page-title text-5xl lg:text-6xl font-bold mt-6 text-shadow">Une équipe à votre écoute</h1>
+                <p class="mt-5 text-lg text-white/80 max-w-2xl mx-auto">Notre équipe vous aide à choisir le bon matelas, répond à vos questions et vous accompagne dans votre commande.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div class="space-y-6">
+                    <div class="contact-card bg-white rounded-2xl p-6 flex items-start gap-4">
+                        <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center"><i class="fab fa-whatsapp text-green-500 text-2xl"></i></div>
+                        <div>
+                            <h3 class="font-bold text-xl mb-1">WhatsApp</h3>
+                            <p class="text-gray-500">Commandez directement avec votre conseiller</p>
+                            <a href="https://wa.me/237675624020" class="text-green-500 font-semibold">+237 675 624 020</a>
+                        </div>
+                    </div>
+                    <div class="contact-card bg-white rounded-2xl p-6 flex items-start gap-4">
+                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center"><i class="fas fa-phone text-primary text-2xl"></i></div>
+                        <div>
+                            <h3 class="font-bold text-xl mb-1">Téléphone</h3>
+                            <p class="text-gray-500">Appelez-nous directement</p>
+                            <a href="tel:+237675624020" class="text-primary font-semibold">+237 675 624 020</a>
+                        </div>
+                    </div>
+                    <div class="contact-card bg-white rounded-2xl p-6 flex items-start gap-4">
+                        <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center"><i class="fas fa-map-marker-alt text-accent text-2xl"></i></div>
+                        <div>
+                            <h3 class="font-bold text-xl mb-1">Adresse</h3>
+                            <p class="text-gray-500">Visitez notre showroom</p>
+                            <p class="font-semibold text-dark">Yaoundé, Cameroun</p>
+                        </div>
+                    </div>
+                    <div class="contact-card bg-white rounded-2xl p-6">
+                        <h3 class="font-bold text-xl mb-4">Horaires</h3>
+                        <p class="text-gray-500">Lundi - Vendredi : 8h00 - 20h00</p>
+                        <p class="text-gray-500">Samedi : 9h00 - 18h00</p>
+                        <p class="text-gray-500">Dimanche : Fermé</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-[2rem] p-8 shadow-xl">
+                    <h2 class="text-3xl font-bold text-dark mb-2">Envoyez-nous un message</h2>
+                    <p class="text-gray-500 mb-6">Nous vous répondrons dans les plus brefs délais.</p>
+                    <form id="contact-form" class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-semibold text-dark mb-2" for="fname">Prénom *</label>
+                                <input id="fname" name="fname" type="text" class="form-control" placeholder="Votre prénom">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-dark mb-2" for="lname">Nom *</label>
+                                <input id="lname" name="lname" type="text" class="form-control" placeholder="Votre nom">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-dark mb-2" for="phone">Téléphone / WhatsApp *</label>
+                            <input id="phone" name="phone" type="tel" class="form-control" placeholder="+237 XXX XXX XXX">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-dark mb-2" for="email">Email</label>
+                            <input id="email" name="email" type="email" class="form-control" placeholder="votre@email.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-dark mb-2" for="product-interest">Produit souhaité</label>
+                            <select id="product-interest" name="product-interest" class="form-control bg-white">
+                                <option>Matelas économique</option>
+                                <option>Matelas confort</option>
+                                <option>Matelas luxe</option>
+                                <option>Matelas orthopédique</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-dark mb-2" for="message">Message *</label>
+                            <textarea id="message" name="message" rows="4" class="form-control" placeholder="Décrivez votre besoin..."></textarea>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button type="submit" class="btn-primary flex-1 py-4">Envoyer</button>
+                            <a href="https://wa.me/237675624020" class="btn-secondary flex-1 py-4"><i class="fab fa-whatsapp"></i> Via WhatsApp</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="section-tag">FAQ</span>
+                <h2 class="text-4xl font-bold text-dark mt-5">Questions fréquentes</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-light rounded-2xl p-6">
+                    <h3 class="font-bold text-xl mb-3">Livraison gratuite ?</h3>
+                    <p class="text-gray-600">Oui, elle est offerte dès 150 000 FCFA.</p>
+                </div>
+                <div class="bg-light rounded-2xl p-6">
+                    <h3 class="font-bold text-xl mb-3">Garantie incluse ?</h3>
+                    <p class="text-gray-600">Tous nos matelas bénéficient d’une garantie de 5 ans.</p>
+                </div>
+                <div class="bg-light rounded-2xl p-6">
+                    <h3 class="font-bold text-xl mb-3">Aide au choix ?</h3>
+                    <p class="text-gray-600">Notre équipe vous accompagne selon votre morphologie et vos préférences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white pt-16 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="images/logo.jpeg" alt="logo" class="w-10 h-10 object-contain rounded-full" width="40" height="40" loading="eager" decoding="async" />
+                        <span class="text-2xl font-bold">Fotsing SARL</span>
+                    </div>
+                    <p class="text-gray-400">Votre spécialiste du matelas premium pour un sommeil plus serein.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg text-accent mb-4">Liens</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white">Accueil</a></li>
+                        <li><a href="produit.html" class="hover:text-white">Produits</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg text-accent mb-4">Nos offres</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li>Matelas éco</li>
+                        <li>Matelas confort</li>
+                        <li>Matelas luxe</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg text-accent mb-4">Contact</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><i class="fab fa-whatsapp text-green-400 mr-2"></i>+237 675 624 020</li>
+                        <li><i class="fas fa-phone text-primary mr-2"></i>+237 675 624 020</li>
+                        <li><i class="fas fa-map-marker-alt text-accent mr-2"></i>Yaoundé, Cameroun</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-6 text-center text-gray-400 text-sm">© 2026 Fotsing SARL - Tous droits réservés.</div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/enhancements.js"></script>
+</body>
+</html>
